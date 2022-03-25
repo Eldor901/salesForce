@@ -37,10 +37,10 @@ export default class AccountList extends LightningElement {
     connectedCallback() {
         getAccountList()
             .then((data) => {
-                let tempList = data.map((item, index) => {
+                this.accountList = data.map((item, index) => {
                     return { ...item, No: index + 1 };
                 });
-                this.accountList = [...tempList];
+                // this.accountList = [...tempList];
                 console.log(this.accountList);
             })
             .catch((error) => {
