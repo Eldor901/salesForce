@@ -2,12 +2,13 @@
   @description       : 
   @author            : Akrom Saidkamolov
   @group             : 
-  @last modified on  : 25-03-2022
-  @last modified by  : Akrom Saidkamolov
+  @last modified on  : 03-28-2022
+  @last modified by  : https://github.com/Eldor901
 -->
 <template>
-  <div style="height: 600px">
-    <lightning-datatable key-field="Id" data={accountList} columns={columns}>
-    </lightning-datatable>
-  </div>
+    <div style="height: 600px">
+        <lightning-card title="Hello"> {account.Id} </lightning-card>
+        <lightning-datatable key-field="Id" data={accountList} columns={columns} onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
 </template>

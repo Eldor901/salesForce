@@ -1,57 +1,42 @@
 import { LightningElement, wire } from "lwc";
 import getAccountList from "@salesforce/apex/AppController.getAccountList";
-import { ShowToastEvent } from "lightning/platformShowToastEvent";
-
-const columns = [
-    { label: "No", fieldName: "No" },
-    { label: "Id", fieldName: "Id" },
-    { label: "Name", fieldName: "Name" },
-    { label: "AccountNumber", fieldName: "AccountNumber" }
-];
+import getAccount from "@salesforce/apex/AppController.getAccount";
+import { getAllAccountList, showError, columns } from "./helper";
 
 export default class AccountList extends LightningElement {
     columns = columns;
     accountList = [];
-    //   @wire(getAccountList)
-    //   getAccountList({ data, error }) {
-    //     if (data) {
-    //       this.accountList = data;
-    //       this.dispatchEvent(
-    //         new ShowToastEvent({
-    //           title: "Yoohoo",
-    //           message: "Here's your data!",
-    //           variant: "success"
-    //         })
-    //       );
-    //       return;
-    //     }
-    //     this.dispatchEvent(
-    //       new ShowToastEvent({
-    //         title: "Error",
-    //         message: error,
-    //         variant: "error"
-    //       })
-    //     );
-    //   }
+    account = [];
+    @wire(getAccountList)
+    getAccountList({ data, error }) {
+        if (data) this.accountList = getAllAccountList(data);
 
-    connectedCallback() {
-        getAccountList()
-            .then((data) => {
-                this.accountList = data.map((item, index) => {
-                    return { ...item, No: index + 1 };
-                });
-                // this.accountList = [...tempList];
-                console.log(this.accountList);
-            })
-            .catch((error) => {
-                console.log("error: ", error);
-                this.dispatchEvent(
-                    new ShowToastEvent({
-                        title: "Error",
-                        message: error,
-                        variant: "error"
-                    })
-                );
-            });
+        if (error) showError(error);
+    }
+
+    // @wire(getAccount)
+    // getAccount({ data, error }) {
+
+    // }
+
+    deleteAccountList(id) {
+        console.log(id);
+    }
+
+    async handleRowAction() {
+        // const actionName = event.datail.action.name;
+
+        this.account = (await getAccount({ AccountId: "0018c00002DZQVNAA5" }))[0];
+
+        // switch (actionName) {
+        //     case "view":
+        //         this.getAcount("1");
+        //         break;
+        //     case "delete":
+        //         this.deleteAccountList("1");
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 }

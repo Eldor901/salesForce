@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : https://github.com/Eldor901
+  @group             : 
+  @last modified on  : 03-28-2022
+  @last modified by  : https://github.com/Eldor901
+-->
+<template>
+    <lightning-card title="Click the buttons to add Article ">
+        <lightning-button
+            slot="actions"
+            variant="brand"
+            label="create card"
+            title="Primary action"
+            onclick={handleClick}
+            class="slds-m-left_x-small"
+        ></lightning-button>
+
+        <div class="slds-p-horizontal_small">
+            <template for:each={todos} for:item="todo">
+                <div key={todo.id} class="slds-m-around_large" style="width: 600px">
+                    <div class="slds-grid slds-grid_align-spread">
+                        <div>{todo.name}, {todo.description}</div>
+
+                        <div>
+                            <lightning-button-icon
+                                onclick={handleDelete}
+                                name={todo.id}
+                                icon-name="utility:delete"
+                                alternative-text="Delete"
+                                title="Delete"
+                            ></lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <p slot="footer">end of data</p>
+    </lightning-card>
+</template>
