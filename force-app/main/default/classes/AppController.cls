@@ -2,10 +2,11 @@
  * @description       :
  * @author            : Akrom Saidkamolov
  * @group             :
- * @last modified on  : 03-28-2022
+ * @last modified on  : 03-29-2022
  * @last modified by  : https://github.com/Eldor901
  **/
-public with sharing class AppController {
+@RestResource(urlMapping='/app')
+global with sharing class AppController {
     @AuraEnabled(cacheable=true)
     public static List<Account> getAccountList() {
         try {
@@ -22,6 +23,16 @@ public with sharing class AppController {
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
+    }
+
+    @AuraEnabled
+    public static Account createAccount(String AccountName) {
+        Account account = new Account(Name = AccountName);
+
+        System.debug(account);
+        insert account;
+
+        return account;
     }
 
     @AuraEnabled(cacheable=true)

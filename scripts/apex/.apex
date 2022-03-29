@@ -1,0 +1,1 @@
+AppController.createAccount('Hello world');

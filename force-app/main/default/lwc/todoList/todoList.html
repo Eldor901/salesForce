@@ -2,7 +2,7 @@
   @description       : 
   @author            : https://github.com/Eldor901
   @group             : 
-  @last modified on  : 03-28-2022
+  @last modified on  : 03-29-2022
   @last modified by  : https://github.com/Eldor901
 -->
 <template>
@@ -18,7 +18,7 @@
 
         <div class="slds-p-horizontal_small">
             <template for:each={todos} for:item="todo">
-                <div key={todo.id} class="slds-m-around_large" style="width: 600px">
+                <div key={todo.id} class="slds-m-around_large">
                     <div class="slds-grid slds-grid_align-spread">
                         <div>{todo.name}, {todo.description}</div>
 

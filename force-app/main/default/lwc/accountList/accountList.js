@@ -24,7 +24,7 @@ export default class AccountList extends LightningElement {
     }
 
     async handleRowAction() {
-        // const actionName = event.datail.action.name;
+        // const zactionName = event.datail.action.name;
 
         this.account = (await getAccount({ AccountId: "0018c00002DZQVNAA5" }))[0];
 

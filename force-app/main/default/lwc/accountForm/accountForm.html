@@ -1,0 +1,21 @@
+<!--
+  @description       : 
+  @author            : https://github.com/Eldor901
+  @group             : 
+  @last modified on  : 03-29-2022
+  @last modified by  : https://github.com/Eldor901
+  // check without form
+-->
+<template>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" onchange={handleAccountNameChange} label="Enter some text"></lightning-input>
+        <div class="slds-text-align_right slds-m-top_small">
+            <lightning-button
+                onclick={handleSubmit}
+                variant="success"
+                label="submit"
+                title="Successful action"
+            ></lightning-button>
+        </div>
+    </div>
+</template>
