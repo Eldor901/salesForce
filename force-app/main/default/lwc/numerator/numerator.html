@@ -1,0 +1,24 @@
+<!--
+  @description       : 
+  @author            : https://github.com/Eldor901
+  @group             : 
+  @last modified on  : 04-05-2022
+  @last modified by  : https://github.com/Eldor901
+-->
+<template>
+    <lightning-card title="Numerator" icon-name="action:manage_perm_sets">    
+        <p class="slds-text-align_center slds-var-m-vertical_medium">
+          Count: <lightning-formatted-number value={priorCount}></lightning-formatted-number>
+        </p>
+        <c-controls
+            class="slds-show slds-is-relative"
+            onadd={handleIncrement}
+            data-factor='12'
+            onmultiply={handleMultiply}
+            onsubtract={handleDecrement}>
+            
+        </c-controls>x
+  
+      </lightning-card>
+    
+</template>

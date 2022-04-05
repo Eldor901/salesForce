@@ -1,0 +1,17 @@
+<!--
+  @description       : 
+  @author            : https://github.com/Eldor901
+  @group             : 
+  @last modified on  : 04-05-2022
+  @last modified by  : https://github.com/Eldor901
+-->
+<template>
+    <lightning-card title="Remote Control" icon-name="action:change_record_type">
+        <c-controls
+          class="slds-show slds-is-relative"
+          onadd={handleIncrement}
+          onsubtract={handleDecrement}
+          onmultiply={handleMultiply}>
+        </c-controls>
+      </lightning-card>
+</template>
